@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportition</title>
+</head>
+<body>
+    <form action="/listdriver-find" method="post">
+        <label for="str" >Text:</label><br>
+        <input type="text" id="str" name="str" placeholder="Search bar"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <box><a th:href="@{/listdriver}">Quit</a></box>
+
+</body>
+</html>
