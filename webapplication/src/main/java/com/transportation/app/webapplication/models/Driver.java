@@ -1,30 +1,22 @@
 package com.transportation.app.webapplication.models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-
-@Getter
-@Setter
-@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Document(collection = "Driver")
 public class Driver {
-
     @Id
+    private String id;
     private String name;
-
     private String personal_ID;
-
-    private String sex;
-
-    public Driver(String n, String p, String s){
-        this.name = n;
-        this.personal_ID = p;
-        this.sex = s;
-    }
-
+    private String sex;    
 }
