@@ -12,45 +12,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.transportation.app.webapplication.models.Driver;
-import com.transportation.app.webapplication.services.DriverService;
+import com.transportation.app.webapplication.models.Vehicle;
+import com.transportation.app.webapplication.services.VehicleService;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
-@RequestMapping("/Driver")
-public class DriverController {
+@RequestMapping("/Vehicle")
+public class VehicleController {
     @Autowired
-    private DriverService driverService;
+    private VehicleService vehicleService;
 
     @GetMapping("/list")
-    public List<Driver> getAllDriver(){
-        return driverService.findAll();
+    public List<Vehicle> getVehicles(){
+        return vehicleService.findAll();
     }
 
     @PostMapping("/add")
-    public Driver addDriver(@RequestBody Driver driver){
-        return driverService.save(driver);
-    }
-
-    @GetMapping("/driver")
-    public List<Driver> findDriver(@RequestParam String str){
-        return driverService.findByNameorPersonal_ID(str);
+    public Vehicle addVehicle(@RequestBody Vehicle vehicle){
+        return vehicleService.save(vehicle);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteDriver(@PathVariable String id){
-        Optional<Driver> driverOptional = driverService.findByID(id);
-        if (driverOptional.isPresent()) {
-            Driver driver = driverOptional.get();
-            driverService.deleteDriver(driver);
+        Optional<Vehicle> vehicleOptional = vehicleService.findByID(id);
+         if (vehicleOptional.isPresent()) {
+            Vehicle vehicle = vehicleOptional.get();
+            vehicleService.deleteVehicle(vehicle);
         }
+        
     }
 
     @PutMapping("/update")
-    public Driver update(@RequestBody Driver driver){
-        return driverService.save(driver);
+    public Vehicle update(@RequestBody Vehicle vehicle){
+        return vehicleService.save(vehicle);
     }
 }
