@@ -35,9 +35,14 @@ public class DriverController {
         return driverService.save(driver);
     }
 
-    @GetMapping("/driver")
+    @GetMapping("/")
     public List<Driver> findDriver(@RequestParam String str){
         return driverService.findByNameorID_number(str);
+    }
+
+    @GetMapping("/login")
+    public Driver findByPass_Word(@RequestParam String password){
+        return driverService.findByID_Number(password);
     }
 
     @DeleteMapping("/delete/{id}")

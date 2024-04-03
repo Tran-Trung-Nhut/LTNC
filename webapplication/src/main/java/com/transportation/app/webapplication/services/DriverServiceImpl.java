@@ -19,6 +19,11 @@ public class DriverServiceImpl implements DriverService{
     public Driver save(Driver driver){
         return driverRepository.save(driver);
     }
+
+    @Override
+    public Driver findByID_Number(String password){
+        return driverRepository.findByID_Number(password);
+    }
     
     @Override
     public List<Driver> findAll(){
