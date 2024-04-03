@@ -11,7 +11,7 @@ import com.transportation.app.webapplication.models.Driver;
 public interface DriverService {
     public Driver save(Driver driver);
     public List<Driver> findAll();
-    public List<Driver> findByNameorPersonal_ID(String str);
+    public List<Driver> findByNameorID_number(String str);
     public void deleteDriver(Driver driver);
     public Optional<Driver> findByID(String id);
 }

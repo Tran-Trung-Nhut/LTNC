@@ -37,7 +37,7 @@ public class DriverController {
 
     @GetMapping("/driver")
     public List<Driver> findDriver(@RequestParam String str){
-        return driverService.findByNameorPersonal_ID(str);
+        return driverService.findByNameorID_number(str);
     }
 
     @DeleteMapping("/delete/{id}")
