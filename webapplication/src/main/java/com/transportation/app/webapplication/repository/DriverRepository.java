@@ -13,8 +13,8 @@ import com.transportation.app.webapplication.models.Driver;
 public interface DriverRepository extends MongoRepository<Driver,String>{
    
     @Query("{$or:[{'name': {$regex: ?0, $options: 'i'}}, {'personal_ID': {$regex: ?0, $options: 'i'}}]}")
-    public List<Driver> findByNameorPersonal_ID(String str);
+    public List<Driver> findByNameorID_Number(String str);
 
     @Query("{'personal_ID': ?0}")
-    public Driver findByPersonal_ID(String str);
+    public Driver findByID_Number(String str);
 }

@@ -17,6 +17,10 @@ public class Driver {
     @Id
     private String id;
     private String name;
-    private String personal_ID;
-    private String sex;    
+    private String id_number;
+    private String dob;
+    private String gender;
+    private String phone_number;
+    private License license;
+    private String availability;
 }

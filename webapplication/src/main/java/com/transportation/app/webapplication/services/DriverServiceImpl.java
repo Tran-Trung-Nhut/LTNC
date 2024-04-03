@@ -27,7 +27,7 @@ public class DriverServiceImpl implements DriverService{
 
     @Override
     public List<Driver> findByNameorPersonal_ID(String str){
-        return driverRepository.findByNameorPersonal_ID(str);
+        return driverRepository.findByNameorID_Number(str);
     }
 
     @Override
