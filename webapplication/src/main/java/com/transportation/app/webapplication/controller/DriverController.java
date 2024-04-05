@@ -35,7 +35,7 @@ public class DriverController {
         return driverService.save(driver);
     }
 
-    @GetMapping("/")
+    @GetMapping("/find")
     public List<Driver> findDriver(@RequestParam String str){
         return driverService.findByNameorID_number(str);
     }
