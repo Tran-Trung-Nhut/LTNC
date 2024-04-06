@@ -41,6 +41,11 @@ public class DriverServiceImpl implements DriverService{
     }
 
     @Override
+    public List<Driver> findByLicenseGrade(String grade){
+        return driverRepository.findByLicenseGrade(grade);
+    }
+
+    @Override
     public Optional<Driver> findByID(String id){
         return driverRepository.findById(id);
     }

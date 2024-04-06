@@ -17,4 +17,7 @@ public interface DriverRepository extends MongoRepository<Driver,String>{
 
     @Query("{'id_number': ?0}")
     public Driver findByID_Number(String id_number);
+
+    @Query("{'license.grade': ?0}")
+    public List<Driver> findByLicenseGrade(String grade);
 }

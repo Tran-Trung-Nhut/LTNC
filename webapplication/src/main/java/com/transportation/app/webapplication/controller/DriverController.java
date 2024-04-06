@@ -40,6 +40,11 @@ public class DriverController {
         return driverService.findByNameorID_number(str);
     }
 
+    @GetMapping("/Grade")
+    public List<Driver> finDriversByGrade(@RequestParam String grade){
+        return driverService.findByLicenseGrade(grade);
+    }
+
     @GetMapping("/login")
     public Driver findByPass_Word(@RequestParam String password){
         return driverService.findByID_Number(password);

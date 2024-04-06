@@ -15,4 +15,5 @@ public interface DriverService {
     public void deleteDriver(Driver driver);
     public Driver findByID_Number(String str);
     public Optional<Driver> findByID(String id);
+    public List<Driver> findByLicenseGrade(String grade);
 }
