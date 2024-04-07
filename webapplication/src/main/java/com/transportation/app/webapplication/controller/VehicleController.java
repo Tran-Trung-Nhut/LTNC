@@ -29,6 +29,8 @@ public class VehicleController {
         return vehicleService.findAll();
     }
 
+    
+
     @PostMapping("/add")
     public Vehicle addVehicle(@RequestBody Vehicle vehicle){
         return vehicleService.save(vehicle);
