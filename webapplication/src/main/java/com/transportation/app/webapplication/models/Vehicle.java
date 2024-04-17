@@ -13,28 +13,34 @@ import lombok.ToString;
 @Data
 @ToString
 @Document(collection = "Vehicle")
+
 public class Vehicle {
     @Id
     private String id;
+    private VehicleType type;
     private VehicleSize size;
-    private VehicleCapacity capacity;
-    private enum Fuel {Gasoline, Gas, Diesel};
-    private String type;
-    private String regiNum;
-    private enum Status {Ongoing, Maintenance, Waiting};
+    private double capacity;
+    private String registeredNumber;
+    private VehicleStatus status;
 
-    public Vehicle(VehicleSize size, int goodCap, int peopleCap, Fuel fuelType, String type, String regiNum, Status status) {
-        // this.id = id;
+    public Vehicle(VehicleSize size, VehicleType type, double capacity, String registeredNumber, VehicleStatus status) {
         this.size = size;
-        this.capacity = new VehicleCapacity(goodCap, peopleCap);
-        this.fuelType = fuelType;
         this.type = type;
-        this.regiNum = regiNum;
+        this.capacity = capacity;
+        this.registeredNumber = registeredNumber;
         this.status = status;
     }
 
     public String getId() {
         return id;
+    }
+
+    public VehicleType getType() {
+        return type;
+    }
+
+    public void setType(VehicleType type) {
+        this.type = type;
     }
 
     public VehicleSize getSize() {
@@ -45,71 +51,27 @@ public class Vehicle {
         this.size = size;
     }
 
-    public VehicleCapacity getCapacity() {
+    public double getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(VehicleCapacity capacity) {
+    public void setCapacity(double capacity) {
         this.capacity = capacity;
     }
 
-    public Fuel getFuelType() {
-        return fuelType;
+    public String getRegisteredNumber() {
+        return registeredNumber;
     }
 
-    public void setFuelType(Fuel fuelType) {
-        this.fuelType = fuelType;
+    public void setRegisteredNumber(String registeredNumber) {
+        this.registeredNumber = registeredNumber;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getRegiNum() {
-        return regiNum;
-    }
-
-    public void setRegiNum(String regiNum) {
-        this.regiNum = regiNum;
-    }
-
-    public Status getStatus() {
+    public VehicleStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(VehicleStatus status) {
         this.status = status;
     }
-
-    public void checkStatus() {
-        System.out.println("Current status: " + status);
-    }
-
-    public void updateInfo(String newRegiNum) {
-        this.regiNum = newRegiNum;
-        System.out.println("Vehicle information updated successfully!");
-    }
 }
-
-public class Car extends Vehicle {
-    private int numSeats;
-
-}
-
-public class Container extends Vehicle {
-    private int maxLoad;
-}
-
-public class Truck extends Vehicle {
-    private int maxLoadCapacity;
-    private boolean isRefrigerated;
-}
-
-
-
-
-

@@ -12,18 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class VehicleSize {
-    private float width, length, height;
-
-    public float getWidth() {
-        return width;
-    }
-
-    public float getLength() {
-        return length;
-    }
-
-    public float getHeight() {
-        return height;
-    }
+public class Bus extends Vehicle {
+    private int numSeats;
 }

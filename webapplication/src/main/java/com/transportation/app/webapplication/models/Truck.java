@@ -11,19 +11,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class VehicleSize {
-    private float width, length, height;
-
-    public float getWidth() {
-        return width;
-    }
-
-    public float getLength() {
-        return length;
-    }
-
-    public float getHeight() {
-        return height;
-    }
+public class Truck extends Vehicle {
+    private int maxLoadCapacity;
+    private boolean isRefrigerated;
 }

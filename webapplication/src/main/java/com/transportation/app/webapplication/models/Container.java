@@ -1,5 +1,4 @@
 package com.transportation.app.webapplication.models;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -12,18 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class VehicleSize {
-    private float width, length, height;
-
-    public float getWidth() {
-        return width;
-    }
-
-    public float getLength() {
-        return length;
-    }
-
-    public float getHeight() {
-        return height;
-    }
+public class Container extends Vehicle {
+    private int maxLoad;
 }
