@@ -14,4 +14,16 @@ import lombok.Setter;
 
 public class VehicleSize {
     private float width, length, height;
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getLength() {
+        return length;
+    }
+
+    public float getHeight() {
+        return height;
+    }
 }

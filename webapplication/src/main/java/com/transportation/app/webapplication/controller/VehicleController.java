@@ -25,29 +25,26 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @GetMapping("/list")
-    public List<Vehicle> getVehicles(){
+    public List<Vehicle> getVehicles() {
         return vehicleService.findAll();
     }
 
-    
-
     @PostMapping("/add")
-    public Vehicle addVehicle(@RequestBody Vehicle vehicle){
+    public Vehicle addVehicle(@RequestBody Vehicle vehicle) {
+        return vehicleService.save(vehicle);
+    }
+
+    @PutMapping("/update")
+    public Vehicle update(@RequestBody Vehicle vehicle) {
         return vehicleService.save(vehicle);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteDriver(@PathVariable String id){
+    public void deleteDriver(@PathVariable String id) {
         Optional<Vehicle> vehicleOptional = vehicleService.findByID(id);
-         if (vehicleOptional.isPresent()) {
+        if (vehicleOptional.isPresent()) {
             Vehicle vehicle = vehicleOptional.get();
             vehicleService.deleteVehicle(vehicle);
         }
-        
-    }
-
-    @PutMapping("/update")
-    public Vehicle update(@RequestBody Vehicle vehicle){
-        return vehicleService.save(vehicle);
     }
 }
