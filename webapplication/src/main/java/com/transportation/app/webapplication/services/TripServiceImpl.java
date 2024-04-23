@@ -1,13 +1,12 @@
 package com.transportation.app.webapplication.services;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.transportation.app.webapplication.models.Driver;
+import com.transportation.app.webapplication.models.Trip;
+import com.transportation.app.webapplication.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.transportation.app.webapplication.models.Trip;
-import com.transportation.app.webapplication.repository.TripRepository;
+import java.util.List;
 
 @Service
 public class TripServiceImpl implements TripService {
@@ -36,13 +35,20 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
-    public Optional<Trip> findByID(String id) {
-        return tripRepository.findById(id);
+    public List<Driver> findAvailableDrivers() {
+        // Viết logic để tìm các tài xế có sẵn ở đây
+        return null;
     }
 
     @Override
     public Trip updateTrip(String tripID, Trip trip) {
-        // Implement update logic here
+        // Implement logic để cập nhật Trip ở đây
         return tripRepository.save(trip);
+    }
+
+    @Override
+    public List<String> findAvailableRegisteredNumbers() {
+        // Truy vấn cơ sở dữ liệu để lấy danh sách các biển số xe có sẵn
+        return tripRepository.findDistinctRegisteredNumberByCurrentStatus("AVAILABLE");
     }
 }
