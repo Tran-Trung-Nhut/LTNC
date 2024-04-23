@@ -1,17 +1,14 @@
 package com.transportation.app.webapplication.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Document(collection = "Trip")
 public class Trip {
 
@@ -22,6 +19,9 @@ public class Trip {
     private String arrivalLocation;
     private String estimatedArrivalTime;
     private String actualArrivalTime;
-    private String currentStatus = "Chưa hoàn thành"; // Set default status to "Chưa hoàn thành"
-    private String driverID; // ID của tài xế
+    private String currentStatus;
+    private String driverID;
+    private VehicleType vehicleType; // Thêm trường Vehicle type
+    private String registeredNumber; // Thêm trường Registered Number
+    private double price; // Thêm trường Price
 }

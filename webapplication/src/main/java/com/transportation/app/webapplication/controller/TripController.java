@@ -22,6 +22,8 @@ public class TripController {
 
     @PostMapping("/add")
     public Trip addTrip(@RequestBody Trip trip) {
+        double price = calculatePrice(trip.getDepartureLocation(), trip.getArrivalLocation());
+        trip.setPrice(price);
         return tripService.save(trip);
     }
 
@@ -33,5 +35,38 @@ public class TripController {
     @PutMapping("/update/{id}")
     public Trip updateTrip(@PathVariable String id, @RequestBody Trip updatedTrip) {
         return tripService.updateTrip(id, updatedTrip);
+    }
+
+    // Hàm tính giá dựa trên điểm xuất phát và điểm đến
+    private double calculatePrice(String departureLocation, String arrivalLocation) {
+        // Logic tính toán giá ở đây
+        // Đưa ra giả định về giá
+        double price = 0.0;
+        if (departureLocation.equals("Thành phố Hồ Chí Minh")) {
+            if (arrivalLocation.equals("Miền nam")) {
+                price = 3000000;
+            } else if (arrivalLocation.equals("Miền trung")) {
+                price = 20000000;
+            } else if (arrivalLocation.equals("Miền bắc")) {
+                price = 30000000;
+            }
+        } else if (departureLocation.equals("Đà Nẵng")) {
+            if (arrivalLocation.equals("Miền nam")) {
+                price = 20000000;
+            } else if (arrivalLocation.equals("Miền trung")) {
+                price = 3000000;
+            } else if (arrivalLocation.equals("Miền bắc")) {
+                price = 20000000;
+            }
+        } else if (departureLocation.equals("Hà Nội")) {
+            if (arrivalLocation.equals("Miền nam")) {
+                price = 30000000;
+            } else if (arrivalLocation.equals("Miền trung")) {
+                price = 20000000;
+            } else if (arrivalLocation.equals("Miền bắc")) {
+                price = 3000000;
+            }
+        }
+        return price;
     }
 }
