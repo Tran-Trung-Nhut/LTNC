@@ -1,8 +1,11 @@
 com/transportation/app/webapplication/models/VehicleCapacity.class
 com/transportation/app/webapplication/models/License.class
 com/transportation/app/webapplication/services/VehicleServiceImpl.class
-com/transportation/app/webapplication/models/Bus.class
 com/transportation/app/webapplication/models/VehicleType.class
+com/transportation/app/webapplication/repository/VehicleRepository.class
+com/transportation/app/webapplication/models/Truck.class
+com/transportation/app/webapplication/services/DriverService.class
+com/transportation/app/webapplication/models/Bus.class
 com/transportation/app/webapplication/repository/DriverRepository.class
 com/transportation/app/webapplication/controller/DriverController.class
 com/transportation/app/webapplication/models/Driver.class
@@ -12,8 +15,5 @@ com/transportation/app/webapplication/services/VehicleService.class
 com/transportation/app/webapplication/models/Vehicle.class
 com/transportation/app/webapplication/services/DriverServiceImpl.class
 com/transportation/app/webapplication/controller/VehicleController.class
-com/transportation/app/webapplication/repository/VehicleRepository.class
 com/transportation/app/webapplication/models/VehicleSize.class
 com/transportation/app/webapplication/models/VehicleStatus.class
-com/transportation/app/webapplication/models/Truck.class
-com/transportation/app/webapplication/services/DriverService.class

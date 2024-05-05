@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.transportation.app.webapplication.models.Vehicle;
@@ -40,11 +41,16 @@ public class VehicleController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteDriver(@PathVariable String id) {
+    public void deleteVehicle(@PathVariable String id) {
         Optional<Vehicle> vehicleOptional = vehicleService.findByID(id);
         if (vehicleOptional.isPresent()) {
             Vehicle vehicle = vehicleOptional.get();
             vehicleService.deleteVehicle(vehicle);
         }
+    }
+
+    @GetMapping("/find")
+    public List<Vehicle> findVehicle(@RequestParam String search) {
+        return vehicleService.searchVehicles(search);
     }
 }

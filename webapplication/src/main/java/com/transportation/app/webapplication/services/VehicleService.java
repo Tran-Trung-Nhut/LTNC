@@ -13,4 +13,5 @@ public interface VehicleService {
     public Vehicle save(Vehicle vehicle);
     public void deleteVehicle(Vehicle vehicle);
     public Optional<Vehicle> findByID(String id);
+    public List<Vehicle> searchVehicles(String registeredNumber);
 }

@@ -10,28 +10,33 @@ import com.transportation.app.webapplication.models.Vehicle;
 import com.transportation.app.webapplication.repository.VehicleRepository;
 
 @Service
-public class VehicleServiceImpl implements VehicleService{
+public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
     private VehicleRepository vehicleRepository;
 
     @Override
-    public List<Vehicle> findAll(){
+    public List<Vehicle> findAll() {
         return vehicleRepository.findAll();
     }
 
     @Override
-    public Vehicle save(Vehicle vehicle){
+    public Vehicle save(Vehicle vehicle) {
         return vehicleRepository.save(vehicle);
     }
 
     @Override
-    public void deleteVehicle(Vehicle vehicle){
+    public void deleteVehicle(Vehicle vehicle) {
         vehicleRepository.delete(vehicle);
     }
 
     @Override
-    public Optional<Vehicle> findByID(String id){
+    public Optional<Vehicle> findByID(String id) {
         return vehicleRepository.findById(id);
+    }
+
+    @Override
+    public List<Vehicle> searchVehicles(String search) {
+        return vehicleRepository.searchVehicles(search);
     }
 }
